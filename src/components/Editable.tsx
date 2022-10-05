@@ -42,7 +42,8 @@ const Editable = forwardRef<HTMLElement, Props>(function Editable(props, ref) {
         <div data-controls={nestingLevel} className="invisible">
           {/* This element positions the controls */}
           <div className="absolute left-0 flex items-center justify-center w-full -top-[6px]">
-            {/* This element pushes the controls up when expanding */}
+            {/* This element pushes the controls up when expanding; it's important for small editables */}
+            {/* This is the trigger area; We have padding to keep the hover when pushing the controls */}
             <div className="hover:pb-1 hover:-mt-4 group">
               {/* This is the controls container, we NEED two borders here for ideal contrast */}
               <div className="bg-yellow-400 border border-black rounded-full outline outline-white">
