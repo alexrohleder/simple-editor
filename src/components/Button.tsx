@@ -1,4 +1,4 @@
-import cn from "classnames";
+import { cx } from "@emotion/css";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 type Props = ComponentPropsWithoutRef<"button"> & {
@@ -26,7 +26,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(function Button(
     <button
       {...buttonProps}
       ref={ref}
-      className={cn(
+      className={cx(
         className,
         "rounded font-semibold transition-colors shadow-sm box-border inline-flex items-center relative",
         {
@@ -44,7 +44,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(function Button(
         }
       )}
     >
-      <div className={cn({ "opacity-0": loading })}>{children}</div>
+      <div className={cx({ "opacity-0": loading })}>{children}</div>
       {loading && (
         <div role="status" className="absolute -ml-2 left-1/2">
           <svg

@@ -1,0 +1,29 @@
+.border:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.border:hover:before,
+.border:focus-within:before {
+  background: linear-gradient(90deg, black 50%, white 50%),
+    linear-gradient(90deg, black 50%, white 50%),
+    linear-gradient(0deg, black 50%, white 50%),
+    linear-gradient(0deg, black 50%, white 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 0.5rem 1px, 0.5rem 1px, 1px 0.5rem, 1px 0.5rem;
+  background-position: 0px 0px, 100% 100%, 0px 100%, 100% 0px;
+}
+
+/* removes the top border from the second element if it's immediately preceded */
+/* by a .border element that is displaying it's border bottom. */
+.border:focus-within + .border:hover:before {
+  background: linear-gradient(90deg, black 50%, white 50%),
+    linear-gradient(0deg, black 50%, white 50%),
+    linear-gradient(0deg, black 50%, white 50%);
+  background-repeat: repeat-x, repeat-y, repeat-y;
+  background-size: 0.5rem 1px, 1px 0.5rem, 1px 0.5rem;
+  background-position: 100% 100%, 0px 100%, 100% 0px;
+}
